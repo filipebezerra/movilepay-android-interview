@@ -4,10 +4,15 @@
 
 O teste consiste em desenvolver um app nativo para Android, onde será implementado uma tela principal com uma lista de widgets, e cada um pode ter ou não uma ação.
 
-Desejável:
+### Pré-requisitos:
+- Kotlin;
 
+### O que esperamos:
 - Modularização;
-- Testes unitários e de fluxo;
+- Teste unitário;
+
+### Plus:
+- Teste de fluxo;
 
 ### Home: lista de widgets:
 
