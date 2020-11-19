@@ -1,5 +1,9 @@
 # movilepay-android-interview
 
+## Projeto:
+- Criar um repositório no Github para este projeto;
+- Enviar para a empresa o link do projeto para que seja avaliado.
+
 ## Descrição:
 
 O teste consiste em desenvolver um app nativo para Android, onde será implementado uma tela principal com uma lista de widgets, e cada um pode ter ou não uma ação.
