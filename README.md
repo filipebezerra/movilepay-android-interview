@@ -7,11 +7,9 @@ O teste consiste em desenvolver um app nativo para Android, onde será implement
 ### Pré-requisitos:
 - Kotlin;
 
-### O que esperamos:
+### O que esperamos (desejável):
 - Modularização;
 - Teste unitário;
-
-### Plus:
 - Teste de fluxo;
 
 ### Home: lista de widgets:
