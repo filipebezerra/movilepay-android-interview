@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment"
+    >
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="app.filipebezerra.demo.android.movpaybank.ui.home.HomeFragment"
+        android:label="@string/home_fragment_label"
+        tools:layout="@layout/home_fragment"
+        >
+
+        <action
+            android:id="@+id/from_home_to_bank_card"
+            app:destination="@id/bankCard"
+            />
+
+        <action
+            android:id="@+id/from_home_to_bank_statement"
+            app:destination="@id/bankStatement"
+            />
+    </fragment>
+
+    <fragment
+        android:id="@+id/bankCard"
+        android:name="app.filipebezerra.demo.android.movpaybank.ui.card.BankCardFragment"
+        android:label="@string/bank_card_fragment_label"
+        tools:layout="@layout/bank_card_fragment"
+        />
+
+    <fragment
+        android:id="@+id/bankStatement"
+        android:name="app.filipebezerra.demo.android.movpaybank.ui.statement.BankStatementFragment"
+        android:label="@string/bank_statement_fragment_label"
+        tools:layout="@layout/bank_statement_fragment"
+        />
+</navigation>

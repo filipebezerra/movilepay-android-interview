@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name" translatable="false">MovPay Bank</string>
+
+    <string name="home_fragment_label">Home</string>
+    <string name="bank_card_fragment_label">Card</string>
+    <string name="bank_statement_fragment_label">Statement</string>
+</resources>
