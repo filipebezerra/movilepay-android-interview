@@ -9,7 +9,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import app.filipebezerra.demo.android.movpaybank.databinding.MainActivityBinding
 import com.google.android.material.snackbar.Snackbar
 
-class MainActivity : AppCompatActivity() {
+class MovPayActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: MainActivityBinding

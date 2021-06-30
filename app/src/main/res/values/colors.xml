@@ -7,4 +7,7 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- Bank Widget -->
+    <color name="bank_widget_stroke_color">#39000000</color>
 </resources>

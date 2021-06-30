@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Widget.MovPayBank" parent="@android:style/Widget.Material" />
+    
+    <style name="Widget.MovPayBank.BankCardView" parent="Widget.MaterialComponents.CardView">
+        <item name="strokeColor">@color/bank_widget_stroke_color</item>
+        <item name="strokeWidth">@dimen/bank_widget_stroke_width</item>
+        <item name="cardCornerRadius">@dimen/bank_widget_corner_radius</item>
+        <item name="contentPadding">@dimen/margin_normal</item>
+    </style>
+</resources>

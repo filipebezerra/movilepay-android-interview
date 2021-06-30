@@ -4,4 +4,6 @@
     <string name="home_fragment_label">Home</string>
     <string name="bank_card_fragment_label">Card</string>
     <string name="bank_statement_fragment_label">Statement</string>
+
+    <string name="bank_widget_content"></string>
 </resources>

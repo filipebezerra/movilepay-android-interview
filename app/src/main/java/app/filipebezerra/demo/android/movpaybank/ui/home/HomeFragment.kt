@@ -5,10 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import app.filipebezerra.demo.android.movpaybank.databinding.HomeFragmentBinding
 import app.filipebezerra.demo.android.movpaybank.presentation.home.HomeViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class HomeFragment : Fragment() {
 
@@ -18,7 +18,7 @@ class HomeFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
 
-    private val viewModel: HomeViewModel by viewModels()
+    private val viewModel: HomeViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -26,12 +26,14 @@ class HomeFragment : Fragment() {
     ): View {
         _binding = HomeFragmentBinding.inflate(inflater, container, false)
         binding.apply {
-            buttonCard.setOnClickListener {
-                findNavController().navigate(HomeFragmentDirections.fromHomeToBankCard())
-            }
-            buttonStatement.setOnClickListener {
-                findNavController().navigate(HomeFragmentDirections.fromHomeToBankStatement())
-            }
+            viewModel = this@HomeFragment.viewModel
+            lifecycleOwner = viewLifecycleOwner
+//            buttonCard.setOnClickListener {
+//                findNavController().navigate(HomeFragmentDirections.fromHomeToBankCard())
+//            }
+//            buttonStatement.setOnClickListener {
+//                findNavController().navigate(HomeFragmentDirections.fromHomeToBankStatement())
+//            }
         }
         return binding.root
     }
