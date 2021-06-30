@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="home_fragment_label">Início</string>
+    <string name="bank_card_fragment_label">Cartão</string>
+    <string name="bank_statement_fragment_label">Extrato</string>
+    <string name="bank_card_expiration_date">Expiration %1$s</string>
+</resources>

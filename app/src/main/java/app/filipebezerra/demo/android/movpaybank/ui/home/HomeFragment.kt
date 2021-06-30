@@ -28,9 +28,6 @@ class HomeFragment : Fragment() {
         binding.apply {
             viewModel = this@HomeFragment.viewModel
             lifecycleOwner = viewLifecycleOwner
-//            buttonCard.setOnClickListener {
-//                findNavController().navigate(HomeFragmentDirections.fromHomeToBankCard())
-//            }
 //            buttonStatement.setOnClickListener {
 //                findNavController().navigate(HomeFragmentDirections.fromHomeToBankStatement())
 //            }

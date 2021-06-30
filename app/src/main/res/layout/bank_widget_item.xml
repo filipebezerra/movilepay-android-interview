@@ -38,7 +38,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:text="Meu cartão"
+                tools:text="@sample/bank_widgets.json/widgets/content/title[1]"
                 />
 
             <TextView
@@ -52,7 +52,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/widget_title"
                 bind:bankWidgetContent="@{widget.content}"
-                tools:text="•••• •••• •••• 8765"
+                tools:text="@sample/bank_widgets.json/widgets/content/cardNumber"
                 />
 
             <Button
@@ -65,7 +65,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/widget_content"
                 bind:bankWidgetButton="@{widget.content.button}"
-                tools:text="Ver detalhes"
+                tools:text="@sample/bank_widgets.json/widgets/content/button/text"
                 />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>

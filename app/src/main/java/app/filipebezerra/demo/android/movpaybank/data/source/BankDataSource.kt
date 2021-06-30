@@ -9,7 +9,7 @@ interface BankDataSource {
 
     suspend fun getWidgets(): Result<List<BankWidget>>
 
-    fun getCard(id: String): Flow<BankCard>
+    suspend fun getCard(id: String): Result<BankCard>
 
     fun getStatement(id: String): Flow<BankStatement>
 }

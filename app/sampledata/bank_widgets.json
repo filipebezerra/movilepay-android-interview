@@ -1,0 +1,46 @@
+{
+  "comment": "Sample bank widgets data for use with tools:... attributes in layouts, primarily list items",
+  "widgets": [
+    {
+      "identifier": "HOME_HEADER_WIDGET",
+      "content": {
+        "title": "Olá Fulano!"
+      }
+    },
+    {
+      "identifier": "HOME_CARD_WIDGET",
+      "content": {
+        "title": "Meu cartão",
+        "cardNumber": "•••• •••• •••• 8765",
+        "button": {
+          "text": "Ver detalhes",
+          "action": {
+            "identifier": "CARD_SCREEN",
+            "content": {
+              "cardId": "123"
+            }
+          }
+        }
+      }
+    },
+    {
+      "identifier": "HOME_STATEMENT_WIDGET",
+      "content": {
+        "title": "Meu saldo",
+        "balance": {
+          "label": "Saldo disponíevl",
+          "value": "R$ 50.000,00"
+        },
+        "button": {
+          "text": "Ver extrato",
+          "action": {
+            "identifier": "STATEMENT_SCREEN",
+            "content": {
+              "accountId": "123"
+            }
+          }
+        }
+      }
+    }
+  ]
+}

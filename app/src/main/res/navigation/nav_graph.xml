@@ -29,7 +29,12 @@
         android:name="app.filipebezerra.demo.android.movpaybank.ui.card.BankCardFragment"
         android:label="@string/bank_card_fragment_label"
         tools:layout="@layout/bank_card_fragment"
-        />
+        >
+        <argument
+            android:name="cardId"
+            app:argType="string"
+            />
+    </fragment>
 
     <fragment
         android:id="@+id/bankStatement"

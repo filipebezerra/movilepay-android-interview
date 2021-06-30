@@ -1,15 +1,14 @@
 package app.filipebezerra.demo.android.movpaybank.domain.usecase
 
-import app.filipebezerra.demo.android.movpaybank.data.BankRepository
-import app.filipebezerra.demo.android.movpaybank.domain.model.BankWidget
 import app.filipebezerra.demo.android.movpaybank.util.AppCoroutineDispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOn
 
-open class LoadWidgetsUseCase(
-    private val bankRepository: BankRepository,
+abstract class FlowUseCase<in P, R>(
     private val dispatchers: AppCoroutineDispatchers
 ) {
-    operator fun invoke(): Flow<Result<List<BankWidget>>> = bankRepository.getWidgets()
+    operator fun invoke(parameters: P): Flow<Result<R>> = execute(parameters)
         .flowOn(dispatchers.io)
+
+    protected abstract fun execute(parameters: P): Flow<Result<R>>
 }

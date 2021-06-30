@@ -1,9 +1,9 @@
-package app.filipebezerra.demo.android.movpaybank.test.mocks
+package app.filipebezerra.demo.android.movpaybank.test.data
 
 import app.filipebezerra.demo.android.movpaybank.data.api.*
 import app.filipebezerra.demo.android.movpaybank.domain.model.*
 
-object MockData {
+object TestData {
 
     val bankWidgetsDto = listOf(
         BankWidgetDto(
@@ -92,4 +92,23 @@ object MockData {
             ),
         )
     )
+
+    val bankCardDto = BankCardDto(
+        cardNumber = "•••• •••• •••• 8765",
+        cardName = "Teste Fulano Ciclano",
+        expirationDate = "09/25",
+        availableLimit = "R$ 3.000,00",
+        totalLimit = "R$ 5.000,00"
+    )
+
+    val bankCard = BankCard(
+        cardNumber = "•••• •••• •••• 8765",
+        cardName = "Teste Fulano Ciclano",
+        expirationDate = "09/25",
+        availableLimit = "R$ 3.000,00",
+        totalLimit = "R$ 5.000,00"
+    )
+
+    val validCardId = "123"
+    val invalidCardId = "invalid"
 }

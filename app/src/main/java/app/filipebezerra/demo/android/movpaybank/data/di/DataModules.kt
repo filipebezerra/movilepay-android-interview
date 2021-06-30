@@ -4,9 +4,11 @@ import app.filipebezerra.demo.android.movpaybank.data.BankRepository
 import app.filipebezerra.demo.android.movpaybank.data.MovilePayRepository
 import app.filipebezerra.demo.android.movpaybank.data.api.BankService
 import app.filipebezerra.demo.android.movpaybank.data.api.SERVICE_API_URL
+import app.filipebezerra.demo.android.movpaybank.data.mapper.BankCardMapper
 import app.filipebezerra.demo.android.movpaybank.data.mapper.BankWidgetMapper
 import app.filipebezerra.demo.android.movpaybank.data.source.BankDataSource
 import app.filipebezerra.demo.android.movpaybank.data.source.remote.RemoteDataSource
+import app.filipebezerra.demo.android.movpaybank.data.source.remote.RemoteDataSourceParameter
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.dsl.module
@@ -38,8 +40,11 @@ val dataModules = module {
 
     single<BankDataSource> {
         RemoteDataSource(
-            bankService = get(),
-            bankWidgetMapper = BankWidgetMapper()
+            parameters = RemoteDataSourceParameter(
+                bankService = get(),
+                bankWidgetMapper = BankWidgetMapper(),
+                bankCardMapper = BankCardMapper()
+            )
         )
     }
 }

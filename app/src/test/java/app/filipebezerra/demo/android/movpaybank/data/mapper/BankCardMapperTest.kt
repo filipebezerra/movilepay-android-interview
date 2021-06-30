@@ -1,7 +1,7 @@
 package app.filipebezerra.demo.android.movpaybank.data.mapper
 
-import app.filipebezerra.demo.android.movpaybank.data.api.BankWidgetDto
-import app.filipebezerra.demo.android.movpaybank.domain.model.BankWidget
+import app.filipebezerra.demo.android.movpaybank.data.api.BankCardDto
+import app.filipebezerra.demo.android.movpaybank.domain.model.BankCard
 import app.filipebezerra.demo.android.movpaybank.test.data.TestData
 import app.filipebezerra.demo.android.movpaybank.test.rules.TestCoroutineRule
 import app.filipebezerra.demo.android.movpaybank.test.rules.runBlockingTest
@@ -11,22 +11,24 @@ import org.junit.Rule
 import org.junit.Test
 
 @ExperimentalCoroutinesApi
-class BankWidgetMapperTest {
+class BankCardMapperTest {
 
     @get:Rule
     val testCoroutineRule = TestCoroutineRule()
 
-    private val mapper: Mapper<BankWidgetDto, BankWidget> = BankWidgetMapper()
+    private val mapper: Mapper<BankCardDto, BankCard> = BankCardMapper()
 
-    private val firstBankWidget: BankWidget = TestData.bankWidgets.first()
-    private val firstDto: BankWidgetDto = TestData.bankWidgetsDto.first()
+    private val bankCard: BankCard = TestData.bankCard
+    private val dto: BankCardDto = TestData.bankCardDto
 
-    @Test fun testBankWidgetsEqualsToBankWidgetsDto() = testCoroutineRule.runBlockingTest {
-        val expected = firstBankWidget
-        val dto = firstDto
+    @Test fun testBankCardEqualsToBankCardDto() = testCoroutineRule.runBlockingTest {
+        // Given
+        val expected = bankCard
 
+        // When
         val result = mapper.map(dto)
 
+        // Then
         assertThat(result).isEqualTo(expected)
     }
 }

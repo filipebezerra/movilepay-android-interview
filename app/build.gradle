@@ -41,7 +41,7 @@ android {
         exclude 'META-INF/AL2.0'
         exclude 'META-INF/LGPL2.1'
     }
-
+    
     testOptions {
         animationsDisabled = true
     }
@@ -58,6 +58,7 @@ dependencies {
     implementation deps.lifecycle.viewmodel_ktx
     implementation deps.lifecycle.livedata_ktx
     implementation deps.lifecycle.java8
+    implementation deps.lifecycle.viewmodel_savedstate
 
     // Android KTX
     implementation deps.core_ktx

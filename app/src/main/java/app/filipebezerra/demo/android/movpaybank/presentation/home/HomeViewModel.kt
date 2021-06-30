@@ -2,10 +2,10 @@ package app.filipebezerra.demo.android.movpaybank.presentation.home
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
-import app.filipebezerra.demo.android.movpaybank.domain.usecase.LoadWidgetsUseCase
+import app.filipebezerra.demo.android.movpaybank.domain.usecase.LoadBankWidgetsUseCase
 import kotlinx.coroutines.flow.map
 
-class HomeViewModel(loadWidgetsUseCase: LoadWidgetsUseCase) : ViewModel() {
+class HomeViewModel(loadBankWidgetsUseCase: LoadBankWidgetsUseCase) : ViewModel() {
 
-    val bankWidgets = loadWidgetsUseCase().map { it.getOrDefault(emptyList()) }.asLiveData()
+    val bankWidgets = loadBankWidgetsUseCase(Unit).map { it.getOrDefault(emptyList()) }.asLiveData()
 }

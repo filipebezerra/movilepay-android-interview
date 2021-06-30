@@ -5,9 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.navArgs
 import app.filipebezerra.demo.android.movpaybank.databinding.BankCardFragmentBinding
 import app.filipebezerra.demo.android.movpaybank.presentation.card.BankCardViewModel
+import org.koin.androidx.viewmodel.ext.android.stateViewModel
 
 class BankCardFragment : Fragment() {
 
@@ -17,13 +18,19 @@ class BankCardFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
 
-    private val viewModel: BankCardViewModel by viewModels()
+    private val arguments: BankCardFragmentArgs by navArgs()
+
+    private val viewModel: BankCardViewModel by stateViewModel(state = { arguments.toBundle() })
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         _binding = BankCardFragmentBinding.inflate(inflater, container, false)
+        binding.apply {
+            viewModel = this@BankCardFragment.viewModel
+            lifecycleOwner = viewLifecycleOwner
+        }
         return binding.root
     }
 

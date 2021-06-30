@@ -11,7 +11,7 @@ interface BankService {
     suspend fun getWidgets(): BankWidgetsResponse
 
     @GET("card/{id}")
-    suspend fun getCard(@Path("id") id: String): BankCardDto
+    suspend fun getCard(@Path("id") id: String): BankCardDto?
 
     @GET("statement/{id}")
     suspend fun getStatement(@Path("id") id: String): BankStatementDto

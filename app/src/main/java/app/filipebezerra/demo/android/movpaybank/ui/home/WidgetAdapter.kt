@@ -2,6 +2,7 @@ package app.filipebezerra.demo.android.movpaybank.ui.home
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import app.filipebezerra.demo.android.movpaybank.databinding.BankWidgetItemBinding
 import app.filipebezerra.demo.android.movpaybank.domain.model.BankWidget
@@ -25,6 +26,11 @@ class BankWidgetViewHolder private constructor(
 
     fun bindTo(item: BankWidget) = with(binding) {
         widget = item
+        widgetButton.setOnClickListener {
+            item.content.button?.action?.content?.cardId?.let { cardId ->
+                it.findNavController().navigate(HomeFragmentDirections.fromHomeToBankCard(cardId))
+            }
+        }
         executePendingBindings()
     }
 

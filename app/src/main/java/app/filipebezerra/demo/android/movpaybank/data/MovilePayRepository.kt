@@ -13,8 +13,8 @@ class MovilePayRepository(private val bankDataSource: BankDataSource) : BankRepo
         emit(bankDataSource.getWidgets())
     }
 
-    override fun getCard(id: String): Flow<Result<BankCard>> {
-        TODO("Not yet implemented")
+    override fun getCard(id: String): Flow<Result<BankCard>> = flow {
+        emit(bankDataSource.getCard(id))
     }
 
     override fun getStatement(id: String): Flow<Result<BankStatement>> {

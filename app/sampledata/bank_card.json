@@ -1,0 +1,10 @@
+{
+  "comment": "Sample bank card data for use with tools:... attributes in layouts",
+  "bankCard": {
+    "cardNumber": "•••• •••• •••• 8765",
+    "cardName": "Teste Fulano Ciclano",
+    "expirationDate": "Expiration 09/25",
+    "availableLimit": "R$ 3.000,00",
+    "totalLimit": "R$ 5.000,00"
+  }
+}
