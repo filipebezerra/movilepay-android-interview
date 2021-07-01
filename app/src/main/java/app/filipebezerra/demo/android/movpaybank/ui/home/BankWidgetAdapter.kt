@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import app.filipebezerra.demo.android.movpaybank.databinding.BankWidgetItemBinding
 import app.filipebezerra.demo.android.movpaybank.domain.model.BankWidget
 
-class WidgetAdapter : RecyclerView.Adapter<BankWidgetViewHolder>() {
+class BankWidgetAdapter : RecyclerView.Adapter<BankWidgetViewHolder>() {
 
     var widgets = emptyList<BankWidget>()
 
@@ -29,6 +29,9 @@ class BankWidgetViewHolder private constructor(
         widgetButton.setOnClickListener {
             item.content.button?.action?.content?.cardId?.let { cardId ->
                 it.findNavController().navigate(HomeFragmentDirections.fromHomeToBankCard(cardId))
+            }
+            item.content.button?.action?.content?.accountId?.let { accountId ->
+                it.findNavController().navigate(HomeFragmentDirections.fromHomeToBankStatement(accountId))
             }
         }
         executePendingBindings()

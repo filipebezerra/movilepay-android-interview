@@ -41,5 +41,10 @@
         android:name="app.filipebezerra.demo.android.movpaybank.ui.statement.BankStatementFragment"
         android:label="@string/bank_statement_fragment_label"
         tools:layout="@layout/bank_statement_fragment"
-        />
+        >
+        <argument
+            android:name="accountId"
+            app:argType="string"
+            />
+    </fragment>
 </navigation>

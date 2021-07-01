@@ -7,8 +7,8 @@ import kotlinx.coroutines.flow.flowOn
 abstract class FlowUseCase<in P, R>(
     private val dispatchers: AppCoroutineDispatchers
 ) {
-    operator fun invoke(parameters: P): Flow<Result<R>> = execute(parameters)
+    operator fun invoke(params: P): Flow<Result<R>> = execute(params)
         .flowOn(dispatchers.io)
 
-    protected abstract fun execute(parameters: P): Flow<Result<R>>
+    protected abstract fun execute(params: P): Flow<Result<R>>
 }

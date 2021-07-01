@@ -4,11 +4,10 @@ import app.filipebezerra.demo.android.movpaybank.data.BankRepository
 import app.filipebezerra.demo.android.movpaybank.data.MovilePayRepository
 import app.filipebezerra.demo.android.movpaybank.data.api.BankService
 import app.filipebezerra.demo.android.movpaybank.data.api.SERVICE_API_URL
-import app.filipebezerra.demo.android.movpaybank.data.mapper.BankCardMapper
-import app.filipebezerra.demo.android.movpaybank.data.mapper.BankWidgetMapper
+import app.filipebezerra.demo.android.movpaybank.data.mapper.*
 import app.filipebezerra.demo.android.movpaybank.data.source.BankDataSource
 import app.filipebezerra.demo.android.movpaybank.data.source.remote.RemoteDataSource
-import app.filipebezerra.demo.android.movpaybank.data.source.remote.RemoteDataSourceParameter
+import app.filipebezerra.demo.android.movpaybank.data.source.remote.RemoteDataSourceParams
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.dsl.module
@@ -17,6 +16,7 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 import java.util.concurrent.TimeUnit
 
 val dataModules = module {
+    single<BankRepository> { MovilePayRepository(bankDataSource = get()) }
     single<BankService> {
         val okHttpClient = OkHttpClient.Builder()
             .addInterceptor(HttpLoggingInterceptor().apply {
@@ -35,15 +35,13 @@ val dataModules = module {
             .build()
             .create(BankService::class.java)
     }
-
-    single<BankRepository> { MovilePayRepository(bankDataSource = get()) }
-
     single<BankDataSource> {
         RemoteDataSource(
-            parameters = RemoteDataSourceParameter(
+            params = RemoteDataSourceParams(
                 bankService = get(),
                 bankWidgetMapper = BankWidgetMapper(),
-                bankCardMapper = BankCardMapper()
+                bankCardMapper = BankCardMapper(),
+                bankStatementMapper = BankStatementMapper(BankTransactionMapper())
             )
         )
     }

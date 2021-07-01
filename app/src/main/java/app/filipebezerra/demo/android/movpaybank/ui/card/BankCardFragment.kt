@@ -23,7 +23,8 @@ class BankCardFragment : Fragment() {
     private val viewModel: BankCardViewModel by stateViewModel(state = { arguments.toBundle() })
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         _binding = BankCardFragmentBinding.inflate(inflater, container, false)

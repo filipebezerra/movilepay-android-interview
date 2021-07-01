@@ -2,37 +2,40 @@ package app.filipebezerra.demo.android.movpaybank.data.source.remote
 
 import app.filipebezerra.demo.android.movpaybank.data.api.BankCardDto
 import app.filipebezerra.demo.android.movpaybank.data.api.BankService
+import app.filipebezerra.demo.android.movpaybank.data.api.BankStatementDto
 import app.filipebezerra.demo.android.movpaybank.data.api.BankWidgetDto
 import app.filipebezerra.demo.android.movpaybank.data.mapper.Mapper
 import app.filipebezerra.demo.android.movpaybank.data.source.BankDataSource
 import app.filipebezerra.demo.android.movpaybank.domain.model.BankCard
 import app.filipebezerra.demo.android.movpaybank.domain.model.BankStatement
 import app.filipebezerra.demo.android.movpaybank.domain.model.BankWidget
-import kotlinx.coroutines.flow.Flow
 
 class RemoteDataSource(
-    private val parameters: RemoteDataSourceParameter
+    private val params: RemoteDataSourceParams
 ) : BankDataSource {
 
     override suspend fun getWidgets(): Result<List<BankWidget>> = runCatching {
-        parameters.bankService.getWidgets().widgets.map {
-            parameters.bankWidgetMapper.map(it)
+        params.bankService.getWidgets().widgets.map {
+            params.bankWidgetMapper.map(it)
         }
     }
 
-    override suspend fun getCard(id: String): Result<BankCard> = runCatching {
-        parameters.bankService.getCard(id)?.let {
-            parameters.bankCardMapper.map(it)
-        } ?: throw InvalidBankCardException("Invalid Bank card: $id")
+    override suspend fun getCard(cardId: String): Result<BankCard> = runCatching {
+        params.bankService.getCard(cardId)?.let {
+            params.bankCardMapper.map(it)
+        } ?: throw InvalidBankCardException(cardId)
     }
 
-    override fun getStatement(id: String): Flow<BankStatement> {
-        TODO("Not yet implemented")
+    override suspend fun getStatement(accountId: String): Result<BankStatement> = runCatching {
+        params.bankService.getStatement(accountId)?.let {
+            params.bankStatementMapper.map(it)
+        } ?: throw InvalidBankStatementException(accountId)
     }
 }
 
-data class RemoteDataSourceParameter(
+data class RemoteDataSourceParams(
     val bankService: BankService,
     val bankWidgetMapper: Mapper<BankWidgetDto, BankWidget>,
-    val bankCardMapper: Mapper<BankCardDto, BankCard>
+    val bankCardMapper: Mapper<BankCardDto, BankCard>,
+    val bankStatementMapper: Mapper<BankStatementDto, BankStatement>
 )

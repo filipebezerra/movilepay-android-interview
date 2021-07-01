@@ -13,8 +13,5 @@ open class GetBankCardUseCase(
     dispatchers: AppCoroutineDispatchers
 ) : FlowUseCase<GetBankCardUseCaseParams, BankCard>(dispatchers) {
 
-    override fun execute(parameters: GetBankCardUseCaseParams) =
-        bankRepository.getCard(parameters.cardId)
+    override fun execute(params: GetBankCardUseCaseParams) = bankRepository.getCard(params.cardId)
 }
-
-fun String.asParams() = GetBankCardUseCaseParams(this)

@@ -9,5 +9,5 @@ open class LoadBankWidgetsUseCase(
     dispatchers: AppCoroutineDispatchers
 ) : FlowUseCase<Unit, List<BankWidget>>(dispatchers) {
 
-    override fun execute(parameters: Unit) = bankRepository.getWidgets()
+    override fun execute(params: Unit) = bankRepository.getWidgets()
 }

@@ -5,8 +5,8 @@ import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
 data class BankStatementDto(
-    @Json(name = "balance") val balance: BankValueDto,
-    @Json(name = "transactions") val transactions: List<BankValueDto>
+    @Json(name = "balance") val balance: BankTransactionDto,
+    @Json(name = "transactions") val transactions: List<BankTransactionDto>
 )
 
 @JsonClass(generateAdapter = true)
@@ -33,12 +33,12 @@ data class BankWidgetDto(
 data class BankWidgetContentDto(
     @Json(name = "title") val title: String,
     @Json(name = "cardNumber") val cardNumber: String? = null,
-    @Json(name = "balance") val balance: BankValueDto? = null,
+    @Json(name = "balance") val balance: BankTransactionDto? = null,
     @Json(name = "button") val button: BankWidgetButtonDto? = null
 )
 
 @JsonClass(generateAdapter = true)
-data class BankValueDto(
+data class BankTransactionDto(
     @Json(name = "label") val label: String,
     @Json(name = "value") val value: String,
     @Json(name = "description") val description: String? = null

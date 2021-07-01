@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
 import app.filipebezerra.demo.android.movpaybank.databinding.HomeFragmentBinding
 import app.filipebezerra.demo.android.movpaybank.presentation.home.HomeViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -21,16 +20,14 @@ class HomeFragment : Fragment() {
     private val viewModel: HomeViewModel by viewModel()
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         _binding = HomeFragmentBinding.inflate(inflater, container, false)
         binding.apply {
             viewModel = this@HomeFragment.viewModel
             lifecycleOwner = viewLifecycleOwner
-//            buttonStatement.setOnClickListener {
-//                findNavController().navigate(HomeFragmentDirections.fromHomeToBankStatement())
-//            }
         }
         return binding.root
     }

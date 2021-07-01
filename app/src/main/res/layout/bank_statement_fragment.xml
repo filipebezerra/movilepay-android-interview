@@ -1,17 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     >
 
     <data>
 
+        <variable
+            name="viewModel"
+            type="app.filipebezerra.demo.android.movpaybank.presentation.statement.BankStatementViewModel"
+            />
     </data>
 
-    <FrameLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:padding="@dimen/margin_normal"
         tools:context=".ui.statement.BankStatementFragment"
         >
 
-    </FrameLayout>
+        <include
+            android:id="@+id/balance_value"
+            layout="@layout/bank_transaction_item"
+            bind:label="@{viewModel.balanceLabel}"
+            bind:value="@{viewModel.balanceValue}"
+            />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/transactions"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_normal"
+            android:scrollbars="none"
+            app:layoutManager="LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/balance_value"
+            bind:bankTransactions="@{viewModel.transactions}"
+            tools:itemCount="3"
+            tools:listitem="@layout/bank_transaction_item"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

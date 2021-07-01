@@ -8,7 +8,7 @@ data class BankWidget(
 data class BankWidgetContent(
     val title: String,
     val cardNumber: String? = null,
-    val balance: BankValue? = null,
+    val balance: BankTransaction? = null,
     val button: BankWidgetButton? = null
 )
 

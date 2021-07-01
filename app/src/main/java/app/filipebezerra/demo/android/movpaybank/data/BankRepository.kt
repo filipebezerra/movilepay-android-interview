@@ -9,7 +9,7 @@ interface BankRepository {
 
     fun getWidgets(): Flow<Result<List<BankWidget>>>
 
-    fun getCard(id: String): Flow<Result<BankCard>>
+    fun getCard(cardId: String): Flow<Result<BankCard>>
 
-    fun getStatement(id: String): Flow<Result<BankStatement>>
+    fun getStatement(accountId: String): Flow<Result<BankStatement>>
 }

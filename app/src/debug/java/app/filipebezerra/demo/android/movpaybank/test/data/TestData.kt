@@ -32,7 +32,7 @@ object TestData {
             identifier = "HOME_STATEMENT_WIDGET",
             content = BankWidgetContentDto(
                 title = "Meu saldo",
-                balance = BankValueDto(
+                balance = BankTransactionDto(
                     label = "Saldo disponível",
                     value = "R$ 50.000,00"
                 ),
@@ -76,7 +76,7 @@ object TestData {
             identifier = "HOME_STATEMENT_WIDGET",
             content = BankWidgetContent(
                 title = "Meu saldo",
-                balance = BankValue(
+                balance = BankTransaction(
                     label = "Saldo disponível",
                     value = "R$ 50.000,00"
                 ),
@@ -100,7 +100,6 @@ object TestData {
         availableLimit = "R$ 3.000,00",
         totalLimit = "R$ 5.000,00"
     )
-
     val bankCard = BankCard(
         cardNumber = "•••• •••• •••• 8765",
         cardName = "Teste Fulano Ciclano",
@@ -108,7 +107,55 @@ object TestData {
         availableLimit = "R$ 3.000,00",
         totalLimit = "R$ 5.000,00"
     )
+    const val validCardId = "123"
+    const val invalidCardId = "invalid"
 
-    val validCardId = "123"
-    val invalidCardId = "invalid"
+    val bankStatement = BankStatement(
+        balance = BankTransaction(
+            label = "Saldo disponível",
+            value = "R$ 50.000,00"
+        ),
+        transactions = listOf(
+            BankTransaction(
+                label = "Transferência enviada",
+                value = "- R$ 500,00",
+                description = "Teste fulano ciclano"
+            ),
+            BankTransaction(
+                label = "Pagamento realizado",
+                value = "- R$ 645,00",
+                description = "Teste fulano ciclano"
+            ),
+            BankTransaction(
+                label = "Transferência recebida",
+                value = "+ R$ 2000,00",
+                description = "Movile Pay"
+            )
+        )
+    )
+    val bankStatementDto = BankStatementDto(
+        balance = BankTransactionDto(
+            label = "Saldo disponível",
+            value = "R$ 50.000,00"
+        ),
+        transactions = listOf(
+            BankTransactionDto(
+                label = "Transferência enviada",
+                value = "- R$ 500,00",
+                description = "Teste fulano ciclano"
+            ),
+            BankTransactionDto(
+                label = "Pagamento realizado",
+                value = "- R$ 645,00",
+                description = "Teste fulano ciclano"
+            ),
+            BankTransactionDto(
+                label = "Transferência recebida",
+                value = "+ R$ 2000,00",
+                description = "Movile Pay"
+            )
+        )
+    )
+    const val validAccountId = "123"
+    const val invalidAccountId = "invalid"
 }

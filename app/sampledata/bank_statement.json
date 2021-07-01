@@ -1,0 +1,26 @@
+{
+  "comment": "Sample bank statement data for use with tools:... attributes in layouts",
+  "bankStatement": {
+    "balance": {
+      "label": "Saldo disponível",
+      "value": "R$ 50.000,00"
+    },
+    "transactions": [
+      {
+        "label": "Transferência enviada",
+        "value": "- R$ 500,00",
+        "description": "Teste fulano ciclano"
+      },
+      {
+        "label": "Pagamento realizado",
+        "value": "- R$ 645,00",
+        "description": "Teste fulano ciclano"
+      },
+      {
+        "label": "Transferência recebida",
+        "value": "+ R$ 2000,00",
+        "description": "Movile Pay"
+      }
+    ]
+  }
+}

@@ -1,6 +1,6 @@
 package app.filipebezerra.demo.android.movpaybank.data.mapper
 
-import app.filipebezerra.demo.android.movpaybank.data.api.BankValueDto
+import app.filipebezerra.demo.android.movpaybank.data.api.BankTransactionDto
 import app.filipebezerra.demo.android.movpaybank.data.api.BankWidgetButtonActionContentDto
 import app.filipebezerra.demo.android.movpaybank.data.api.BankWidgetButtonDto
 import app.filipebezerra.demo.android.movpaybank.data.api.BankWidgetDto
@@ -18,8 +18,8 @@ class BankWidgetMapper : Mapper<BankWidgetDto, BankWidget> {
         )
     )
 
-    private fun BankValueDto?.mapOrNul() = this?.let { fromBalanceDto ->
-        BankValue(
+    private fun BankTransactionDto?.mapOrNul() = this?.let { fromBalanceDto ->
+        BankTransaction(
             label = fromBalanceDto.label,
             value = fromBalanceDto.value
         )

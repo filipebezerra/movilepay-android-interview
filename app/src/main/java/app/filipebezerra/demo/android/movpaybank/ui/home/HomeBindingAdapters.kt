@@ -1,9 +1,5 @@
 package app.filipebezerra.demo.android.movpaybank.ui.home
 
-import android.text.Layout
-import android.text.SpannableString
-import android.text.Spanned
-import android.text.style.AlignmentSpan
 import android.widget.Button
 import android.widget.TextView
 import androidx.core.view.isGone
@@ -18,7 +14,7 @@ import app.filipebezerra.demo.android.movpaybank.domain.model.BankWidgetContent
 fun RecyclerView.bankWidgets(bankWidgets: List<BankWidget>?) {
     if (bankWidgets?.isNotEmpty() == true) {
         isVisible = true
-        adapter = (adapter as? WidgetAdapter ?: WidgetAdapter())
+        adapter = (adapter as? BankWidgetAdapter ?: BankWidgetAdapter())
             .apply {
                 widgets = bankWidgets
             }

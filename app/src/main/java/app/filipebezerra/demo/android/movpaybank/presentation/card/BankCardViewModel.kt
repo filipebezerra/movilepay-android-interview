@@ -3,7 +3,7 @@ package app.filipebezerra.demo.android.movpaybank.presentation.card
 import androidx.lifecycle.*
 import app.filipebezerra.demo.android.movpaybank.domain.model.EmptyBankCard
 import app.filipebezerra.demo.android.movpaybank.domain.usecase.GetBankCardUseCase
-import app.filipebezerra.demo.android.movpaybank.domain.usecase.asParams
+import app.filipebezerra.demo.android.movpaybank.domain.usecase.GetBankCardUseCaseParams
 import app.filipebezerra.demo.android.movpaybank.util.getCardIdAsLiveData
 import kotlinx.coroutines.flow.map
 
@@ -15,7 +15,7 @@ class BankCardViewModel(
     private val cardId = savedStateHandle.getCardIdAsLiveData()
 
     private val bankCard = cardId.switchMap { id ->
-        val params = id.asParams()
+        val params = GetBankCardUseCaseParams(id)
         getBankCardUseCase(params).map { result ->
             result.getOrDefault(EmptyBankCard)
         }.asLiveData()

@@ -14,5 +14,5 @@ interface BankService {
     suspend fun getCard(@Path("id") id: String): BankCardDto?
 
     @GET("statement/{id}")
-    suspend fun getStatement(@Path("id") id: String): BankStatementDto
+    suspend fun getStatement(@Path("id") id: String): BankStatementDto?
 }
